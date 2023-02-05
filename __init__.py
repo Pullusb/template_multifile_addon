@@ -8,9 +8,12 @@ bl_info = {
     "blender": (3, 5, 0),
     "location": "View3D",
     "warning": "",
-    "doc_url": "https://github.com/Pullusb/PROJ_name",
-    "category": "Object" }
+    "doc_url": "https://github.com/Pullusb/REPONAME",
+    "tracker_url": "https://github.com/Pullusb/REPONAME/issues",
+    "category": "Object"
+}
 
+import bpy
 from . import properties
 from . import preferences
 from . import ops_power
@@ -25,18 +28,17 @@ mods = (
     keymaps,
 )
 
-import bpy
-
-
 def register():
     if bpy.app.background:
         return
+    
     for mod in mods:
         mod.register()
 
 def unregister():
     if bpy.app.background:
         return
+    
     for mod in mods:
         mod.unregister()
 
