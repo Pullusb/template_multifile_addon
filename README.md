@@ -1,4 +1,4 @@
-# PROJ
+# PROJNAME
 
 Same description as the addon
 

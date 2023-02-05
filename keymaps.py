@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
+
 import bpy
 
 addon_keymaps = []
@@ -7,6 +9,7 @@ def register():
     # km = addon.keymaps.new(name = "Window", space_type = "EMPTY")# from everywhere
     
     km = addon.keymaps.new(name = "3D View", space_type = "VIEW_3D")
+    kmi = km.keymap_items.new('catname.opsname', type='F5', value='PRESS')
 
     ## detailed
     # kmi = km.keymap_items.new(
@@ -20,7 +23,6 @@ def register():
     #     oskey=False
     #     )
 
-    kmi = km.keymap_items.new('catname.opsname', type='F5', value='PRESS')
 
     # km = addon.keymaps.new(name = "Grease Pencil Stroke Sculpt Mode", space_type = "EMPTY", region_type='WINDOW')
     # kmi = km.keymap_items.new('wm.context_toggle', type='THREE', value='PRESS')

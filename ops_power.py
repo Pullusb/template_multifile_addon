@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
+
 import bpy
 from bpy.types import Operator
 from .preferences import get_addon_prefs
@@ -37,13 +39,15 @@ class PROJ_OT_opsname_modal(Operator):
         # if context.mode not in ('PAINT_GPENCIL', 'EDIT_GPENCIL'):
         #     return {"CANCELLED"}
         self.shift = event.shift
-        self.homogen_pressure = event.ctrl
 
         ## for a modal
         # context.window_manager.modal_handler_add(self)
         # return {'RUNNING_MODAL'}
         return self.execute(context)
 
+    def draw(self, context):
+        layout = self.layout
+        layout.prop(self, "shift")
 
     # def modal(self, context, event):
         # return {'PASS_THROUGH'}
@@ -52,10 +56,6 @@ class PROJ_OT_opsname_modal(Operator):
     def execute(self, context):
         print('Hi!')        
         return {"FINISHED"}
-
-    def draw(self, context):
-        layout = self.layout
-        layout.prop(self, "shift")
 
 classes=(
 PROJ_OT_opsname,
