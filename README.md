@@ -1,6 +1,6 @@
 # PROJNAME
 
-Same description as the addon
+PROJdesc
 
 <!-- /!\ Alpha, work in progress -->
 
