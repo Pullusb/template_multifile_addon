@@ -39,7 +39,7 @@ def unregister():
     if bpy.app.background:
         return
     
-    for mod in mods:
+    for mod in reversed(mods):
         mod.unregister()
 
 if __name__ == "__main__":
