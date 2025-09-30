@@ -1,0 +1,48 @@
+schema_version = "1.0.0"
+
+id = "multifile_addon"
+version = "0.1.0"
+name = "PROJNAME"
+tagline = "PROJdesc"
+maintainer = "Samuel Bernou" # Add <mail>
+type = "add-on"
+
+# Optional: add-ons can list which resources they will require and description:
+# * "files" (for access of any filesystem operations)
+# * "network" (for internet access)
+# * "clipboard" (to read and/or write the system clipboard)
+# * "camera" (to capture photos and videos)
+# * "microphone" (to capture audio)
+# permissions = ["files", "network"])
+# [permissions]
+# network = "Automatic download"
+# files = "Write json data"
+
+website = https://github.com/Pullusb/REPONAME
+
+# https://docs.blender.org/manual/en/dev/extensions/tags.html
+tags = ["Object",]
+blender_version_min = "4.2.0"
+license = ["SPDX:GPL-2.0-or-later"]
+
+# Copyright - Optional: required by some licenses, can have multiple line
+copyright = ["2025 Samuel Bernou",]
+
+# Optional list of supported platforms. If omitted, the extension will be available in all operating systems.
+# platforms = ["windows-amd64", "macos-arm64", "linux-x86_64"]
+# Other supported platforms: "windows-arm64", "macos-x86_64"
+
+# Optional: bundle 3rd party Python modules.
+# https://docs.blender.org/manual/en/dev/extensions/python_wheels.html
+# wheels = [
+#   "./wheels/hexdump-3.3-py3-none-any.whl",
+#   "./wheels/jsmin-3.0.1-py3-none-any.whl"
+# ]
+
+# Optional: build setting.
+# https://docs.blender.org/manual/en/dev/extensions/command_line_arguments.html#command-line-args-extension-build
+# [build]
+# paths_exclude_pattern = [
+#   "/.git/"
+#   "__pycache__/"
+# ]

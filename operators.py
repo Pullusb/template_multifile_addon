@@ -5,9 +5,9 @@ from bpy.types import Operator
 from .preferences import get_addon_prefs
 
 
-class PROJ_OT_opsname(Operator):
-    bl_idname = "catname.opsname"
-    bl_label = "Opsname"
+class PROJ_OT_ops_name(Operator):
+    bl_idname = "catname.ops_name"
+    bl_label = "Ops Name"
     bl_description = "Description that shows in blender tooltips"
     bl_options = {"REGISTER", "UNDO"}
 
@@ -23,15 +23,15 @@ class PROJ_OT_opsname(Operator):
         return {"FINISHED"}
 
 
-class PROJ_OT_opsname_modal(Operator):
-    bl_idname = "catname.opsname_modal"
+class PROJ_OT_ops_name_modal(Operator):
+    bl_idname = "catname.ops_name_modal"
     bl_label = "Opsname Modal"
     bl_description = "Description that shows in blender tooltips"
     bl_options = {"REGISTER", "UNDO"} # INTERNAL
 
     @classmethod
     def poll(cls, context):
-        return context.object and context.object.type == 'MESH'#True
+        return context.object and context.object.type == 'MESH'
 
     shift : bpy.props.BoolProperty(name='Shifter', default=False)
 
@@ -41,25 +41,33 @@ class PROJ_OT_opsname_modal(Operator):
         self.shift = event.shift
 
         ## for a modal
-        # context.window_manager.modal_handler_add(self)
-        # return {'RUNNING_MODAL'}
-        return self.execute(context)
+        context.window_manager.modal_handler_add(self)
+        return {'RUNNING_MODAL'}
+        # return self.execute(context)
 
     def draw(self, context):
         layout = self.layout
         layout.prop(self, "shift")
 
-    # def modal(self, context, event):
+    def modal(self, context, event):
+        if event.type == 'LEFTMOUSE' and event.value == 'PRESS':
+            self.execute(context)
+            return {"FINISHED"}
+
+        if event.type == 'RIGHTMOUSE':
+            print('Abort')
+            return {"CANCELLED"}
+
         # return {'PASS_THROUGH'}
-        # return {"RUNNING_MODAL"}
+        return {"RUNNING_MODAL"}
 
     def execute(self, context):
-        print('Hi!')        
+        print('What a click !')        
         return {"FINISHED"}
 
 classes=(
-PROJ_OT_opsname,
-PROJ_OT_opsname_modal,
+PROJ_OT_ops_name,
+PROJ_OT_ops_name_modal,
 )
 
 def register(): 
